@@ -47,40 +47,14 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if keyword == "e3e" {
-		glob.Bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(glob.MapleCurrencyMessage)).Do()
-		return nil
-	}
-
-		case "e2e":
-			switch message := event.Message.(type) {
-				return nil
-			}
-			messages = append(messages,
-				linebot.NewTextMessage("クーポンをゲットしよう!!!"),
-				linebot.NewTextMessage(os.Getenv("WEB_CAMPAIGN_URL")),
-			)
+		messages := []linebot.Message{
+			linebot.NewTextMessage("友達登録ありがとうございます。"),
+			linebot.NewTextMessage(message.ID+":"+message.Text+" OK! remain message:"+strconv.FormatInt(quota.Value, 10))).Do(); err != nil {
+			log.Print(err)
 		}
-
-		return messages
 	}
+}
 
-	if text == "Buttons" {
-	    message := linebot.NewTextMessage(text + "じゃねぇよ！")
-			linebot.NewTextMessage("Select your favorite food category or send me your location!").
-			}
-		}
-		case "e4e":
-			if e.Source.Type != linebot.EventSourceTypeUser {
-				return nil
-			}
-			messages = append(messages,
-				linebot.NewTextMessage("クーポンをゲットしよう!!!"),
-				linebot.NewTextMessage(os.Getenv("WEB_CAMPAIGN_URL")),
-			)
-		}
-
-		return messages
-	}
 
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
