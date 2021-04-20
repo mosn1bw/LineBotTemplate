@@ -112,8 +112,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-if text == "Buttons" {
-	    message := linebot.NewTextMessage(text + "じゃねぇよ！")
+	if text == "Buttons" {
+		message := linebot.NewTextMessage(text + "じゃねぇよ！")
 			linebot.NewTextMessage("Select your favorite food category or send me your location!").
 			}
 		}
