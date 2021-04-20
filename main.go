@@ -46,15 +46,17 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+// Text message
+func Text(text string) *linebot.TextMessage {
+	return linebot.NewTextMessage(text)
+}
+
 	if keyword == "e3e" {
 		messages := []linebot.Message{
 			linebot.NewTextMessage("友達登録ありがとうございます。"),
 			linebot.NewTextMessage(message.ID+":"+message.Text+" OK! remain message:"+strconv.FormatInt(quota.Value, 10))).Do(); err != nil {
-			log.Print(err)
 		}
 	}
-}
-
 
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
