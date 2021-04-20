@@ -54,7 +54,7 @@ func Text(text string) *linebot.TextMessage {
 	if keyword == "e3e" {
 		messages := []linebot.Message{
 			linebot.NewTextMessage("友達登録ありがとうございます。"),
-			linebot.NewTextMessage(message.ID+":"+message.Text+" OK! remain message:"+strconv.FormatInt(quota.Value, 10))).Do(); err != nil {
+			linebot.NewTextMessage(message.ID+":"+message.Text+" OK! remain message:"+strconv.FormatInt(quota.Value, 10)).Do(); err != nil {}
 		}
 	}
 
