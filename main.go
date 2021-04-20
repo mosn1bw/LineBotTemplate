@@ -46,73 +46,30 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	for _, event := range events {
-		log.Printf("Got event %v", event)
-		switch event.Type {
-		case linebot.EventTypeMessage:
-			switch message := event.Message.(type) {
-			case *linebot.TextMessage:
-				if err := app.handleText(message, event.ReplyToken, event.Source); err != nil {
-					log.Print(err)
-				}
-			case *linebot.ImageMessage:
-				if err := app.handleImage(message, event.ReplyToken); err != nil {
-					log.Print(err)
-				}
-			case *linebot.VideoMessage:
-				if err := app.handleVideo(message, event.ReplyToken); err != nil {
-					log.Print(err)
-				}
-			case *linebot.AudioMessage:
-				if err := app.handleAudio(message, event.ReplyToken); err != nil {
-					log.Print(err)
-				}
-			case *linebot.FileMessage:
-				if err := app.handleFile(message, event.ReplyToken); err != nil {
-					log.Print(err)
-				}
-			case *linebot.LocationMessage:
-				if err := app.handleLocation(message, event.ReplyToken); err != nil {
-					log.Print(err)
-				}
-			case *linebot.StickerMessage:
-				if err := app.handleSticker(message, event.ReplyToken); err != nil {
-					log.Print(err)
-				}
-			default:
-				log.Printf("Unknown message: %v", message)
-			}
-		case linebot.EventTypeFollow:
-			if err := app.replyText(event.ReplyToken, "Got followed event"); err != nil {
-				log.Print(err)
-			}
-		case linebot.EventTypeUnfollow:
-			log.Printf("Unfollowed this bot: %v", event)
-		case linebot.EventTypeJoin:
-			if err := app.replyText(event.ReplyToken, "Joined "+string(event.Source.Type)); err != nil {
-				log.Print(err)
-			}
-		case linebot.EventTypeLeave:
-			log.Printf("Left: %v", event)
-		case linebot.EventTypePostback:
-			data := event.Postback.Data
-			if data == "DATE" || data == "TIME" || data == "DATETIME" {
-				data += fmt.Sprintf("(%v)", *event.Postback.Params)
-			}
-			if err := app.replyText(event.ReplyToken, "Got postback: "+data); err != nil {
-				log.Print(err)
-			}
-		case linebot.EventTypeBeacon:
-			if err := app.replyText(event.ReplyToken, "Got beacon: "+event.Beacon.Hwid); err != nil {
-				log.Print(err)
-			}
-		default:
-			log.Printf("Unknown event: %v", event)
-		}
+	if keyword == "e3e" {
+		glob.Bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(glob.MapleCurrencyMessage)).Do()
+		return nil
 	}
-}
 
-		case "e3e":
+		case "e2e":
+			switch message := event.Message.(type) {
+				return nil
+			}
+			messages = append(messages,
+				linebot.NewTextMessage("クーポンをゲットしよう!!!"),
+				linebot.NewTextMessage(os.Getenv("WEB_CAMPAIGN_URL")),
+			)
+		}
+
+		return messages
+	}
+
+	if text == "Buttons" {
+	    message := linebot.NewTextMessage(text + "じゃねぇよ！")
+			linebot.NewTextMessage("Select your favorite food category or send me your location!").
+			}
+		}
+		case "e4e":
 			if e.Source.Type != linebot.EventSourceTypeUser {
 				return nil
 			}
