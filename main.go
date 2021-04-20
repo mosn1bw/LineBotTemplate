@@ -112,11 +112,6 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-	if text == "Buttons" {
-		message := linebot.NewTextMessage(text + "じゃねぇよ！")
-			linebot.NewTextMessage("Select your favorite food category or send me your location!").
-			}
-		}
 		case "e3e":
 			if e.Source.Type != linebot.EventSourceTypeUser {
 				return nil
