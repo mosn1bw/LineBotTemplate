@@ -4,10 +4,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/gcp-kit/line-bot-gcp-go/gcpine"
-	"github.com/go-utils/caller"
-	"github.com/line/line-bot-sdk-go/v7/linebot"
-	"golang.org/x/xerrors"
+	"github.com/line/line-bot-sdk-go/linebot"
 )
 
 // TextEvent - handle text message events
